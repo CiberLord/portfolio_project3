@@ -23,22 +23,23 @@
         this.wind = wind;
         this.posx = 0;
         this.posy = 0;
-        this.visible = function () { }
-        this.hide = function () {
-
-        }
     }
     Dialog.prototype.show = function () {
         this.mask.css("display", "block");
-        this.wind.css("display", "block");
         $('body').css("overflow", "hidden");
-        this.visible();
+        this.mask.animate({
+            opacity: '1'
+        }, 300);
     }
     Dialog.prototype.hidden = function () {
-        this.mask.css("display", "none");
-        this.wind.css("display", "none");
-        $('body').css("overflow", "auto");
-        this.hide();
+        let m=this.mask;
+        this.mask.animate({
+            opacity: '0'
+        }, 300,
+            function () {
+                m.css("display", "none");
+                $('body').css("overflow", "auto");
+            });
     }
 
 
@@ -52,7 +53,7 @@
                         //начальные установки
                         dialog.mask.css({
                             "opacity": "0",
-                            "transition":"all 3s;"
+                            "transition": "all 3s;"
                         })
                         dialog.wind.css({
 
@@ -61,7 +62,7 @@
                         // функции анимации
                         dialog.hide = function () {
                             dialog.mask.css({
-                                "opacity": "0"                                
+                                "opacity": "0"
                             })
                             dialog.wind.css({
 
@@ -69,7 +70,7 @@
                         }
                         dialog.visible = function () {
                             dialog.mask.css({
-                            "opacity": "1"
+                                "opacity": "1"
                             })
                             dialog.wind.css({
 
@@ -95,17 +96,17 @@
         }
     }
     //создает кнопку выхода из диалогового окна
-    function getExitButton(){
+    function getExitButton() {
         let exitButton = $('<div><span id="l1"></span><span id="l2"></span></div>');//кнопка выхода
         exitButton.css(
             {
                 "margin": "10px",
                 "width": "40px",
                 "height": "40px",
-                "z-index":"2000",
+                "z-index": "2000",
                 "position": "absolute",
-                "top":"10px",
-                "right":"10px",
+                "top": "10px",
+                "right": "10px",
                 "cursor": "pointer",
                 "background-color": "transparent"
             });
@@ -118,7 +119,7 @@
             "left": "0",
             "transform-origin": "center",
             "transform": "translateY(-50%)",
-            "background-color": "red",
+            "background-color": "#fff",
         });
         exitButton.find('#l1').css({
             "transform": "rotateZ(45deg)"
@@ -130,7 +131,7 @@
         return exitButton;
     }
     //затемняющий фон для для для окна
-    function getMask(){
+    function getMask() {
         let mask = $("<div></div>"); //элмент для затемнения области за модальным окном 
 
         mask.css({
@@ -142,11 +143,13 @@
             "z-index": "900",
             "display": "none",
             "background-color": "rgba(0,0,0,0.8)",
+            "overflow": "hidden",
+            "opacity": "0"
         });
         return mask;
     }
     //получить диалоговое окно из документа
-    function getModalView(selector){
+    function getModalView(selector) {
         //модальное окно
         let wind = $(selector);
         wind.css({
@@ -155,7 +158,7 @@
             "left": "50%",
             "transform": "translate(-50%, -50%)",
             "z-index": "1000",
-            "display": "none",
+            "display": "block",
         })
 
         return wind;
@@ -163,29 +166,29 @@
 
     //создает диалоговое окно, параметром функции - css cелектор диалогового окна
     ew.create = function (selector, data) {
-        
+
         //добавление всех в элементов в тело
-        let exitButton=getExitButton();
-        let mask=getMask();
-        let wind=getModalView(selector);
+        let exitButton = getExitButton();
+        let mask = getMask();
+        let wind = getModalView(selector);
 
-        let media=window.matchMedia('(max-width: 590px)');
+        let media = window.matchMedia('(max-width: 590px)');
 
-        if(media.matches){
+        if (media.matches) {
             exitButton.css({
-                "width":"30px",
-                "height":"30px"
+                "width": "30px",
+                "height": "30px"
             })
-            exitButton.find('span').css("background-color","rgba(175, 175, 175)")
+            exitButton.find('span').css("background-color", "rgba(175, 175, 175)")
         }
-        media.addListener(function(e){
-            if(e.matches){
-                exitButton.find('span').css("background-color","rgba(175, 175, 175)")
-            }   
+        media.addListener(function (e) {
+            if (e.matches) {
+                exitButton.find('span').css("background-color", "rgba(175, 175, 175)")
+            }
         })
 
-        mask.append(exitButton);
         $('body').append(mask);
+        mask.append(exitButton);
         mask.append(wind);
 
         dialog = new Dialog(mask, wind);// диалоговый обьект который должен вернутся
@@ -193,7 +196,7 @@
             dialog.hidden();
         });
 
-        setOptions(dialog,data)
+        setOptions(dialog, data)
 
         return dialog;
     }

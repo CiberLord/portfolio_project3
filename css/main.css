@@ -110,7 +110,7 @@ a img{
 }
 
 .header {
-    height: 100vh;
+    padding-bottom: 500px;
     background: linear-gradient( rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)), url(https://thumb.tildacdn.com/tild3062-6435-4137-a433-666262366132/-/format/webp/STOL.jpg);
     -webkit-background-size: cover;
     -moz-background-size: cover;
