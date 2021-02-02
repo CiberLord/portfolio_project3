@@ -202,6 +202,9 @@
         let leftArrow = getLeftArrow();
         let rightArrow = getRightArrow();
         let mask = getMask();
+        let x=0;
+        let y=0;
+
         mask.append(exitButton);
         mask.append(leftArrow);
         mask.append(rightArrow);
@@ -272,6 +275,7 @@
                 })
             }
         })
+        
 
         return gallery;
     }
