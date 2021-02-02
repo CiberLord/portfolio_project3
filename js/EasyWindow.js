@@ -179,7 +179,7 @@
             exitButton.find('span').css("background-color","rgba(175, 175, 175)")
         }
         media.addListener(function(e){
-            if(media(e.matches)){
+            if(e.matches){
                 exitButton.find('span').css("background-color","rgba(175, 175, 175)")
             }   
         })
