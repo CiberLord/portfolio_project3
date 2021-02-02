@@ -235,12 +235,12 @@
 
             if (max.matches) {
                 img.css({
-                    'width': '100',
+                    'width': '100%',
                     'height': 'auto',
                     'transform': 'none',
                     'left': '0%',
                     'top': '50%',
-                    'transform': 'translateY(-50 %)'
+                    'transform': 'translateY(-50%)'
                 })
             }
 

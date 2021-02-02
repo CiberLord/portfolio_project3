@@ -12,12 +12,14 @@ let data=["C:/Users/Yuldash/Desktop/workspace/PROJECT__ONE/img/gallery1.jpg",
         animation: true
     });//создание окна регистрации
     let gallery=GalleryView.createFromPath(data,"gallery460");
+    
+    //кнопка меню в моб устройствах
     Gamburger.cooke('.navbar',{
         color: "#fff",
         after: false,
         open: function(){
             $('.menu').css({
-                'height':'50vh',
+                'height':'90vh',
                 'padding':'60px 0px'
             })
             

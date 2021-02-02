@@ -99,11 +99,13 @@
         let exitButton = $('<div><span id="l1"></span><span id="l2"></span></div>');//кнопка выхода
         exitButton.css(
             {
-                "float": "right",
                 "margin": "10px",
                 "width": "40px",
                 "height": "40px",
-                "position": "relative",
+                "z-index":"2000",
+                "position": "absolute",
+                "top":"10px",
+                "right":"10px",
                 "cursor": "pointer",
                 "background-color": "transparent"
             });
@@ -116,7 +118,7 @@
             "left": "0",
             "transform-origin": "center",
             "transform": "translateY(-50%)",
-            "background-color": "#fff",
+            "background-color": "red",
         });
         exitButton.find('#l1').css({
             "transform": "rotateZ(45deg)"
@@ -148,7 +150,7 @@
         //модальное окно
         let wind = $(selector);
         wind.css({
-            "position": "fixed",
+            "position": "absolute",
             "top": "50%",
             "left": "50%",
             "transform": "translate(-50%, -50%)",
@@ -167,9 +169,24 @@
         let mask=getMask();
         let wind=getModalView(selector);
 
+        let media=window.matchMedia('(max-width: 590px)');
+
+        if(media.matches){
+            exitButton.css({
+                "width":"30px",
+                "height":"30px"
+            })
+            exitButton.find('span').css("background-color","rgba(175, 175, 175)")
+        }
+        media.addListener(function(e){
+            if(media(e.matches)){
+                exitButton.find('span').css("background-color","rgba(175, 175, 175)")
+            }   
+        })
+
         mask.append(exitButton);
         $('body').append(mask);
-        $('body').append(wind);
+        mask.append(wind);
 
         dialog = new Dialog(mask, wind);// диалоговый обьект который должен вернутся
         exitButton.on("click", function () {
