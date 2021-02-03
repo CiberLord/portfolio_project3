@@ -1,5 +1,5 @@
 //основной скрипт файл
-let data=["C:/Users/Yuldash/Desktop/workspace/PROJECT__ONE/img/gallery1.jpg",
+let data=["../img/gallery1.jpg",
             "../img/gallery2.jpg",
             "../img/gallery3.jpg",
             "../img/gallery4.jpg",
