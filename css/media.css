@@ -188,6 +188,19 @@
         border-radius: 20px;
         font-size: 12px;
     }
+    /* registration section */
+    .reg-button{
+        margin-top: 30px;
+    }
+    .reg-button::before{
+        bottom: 120%;
+        left: 50%;
+        transform: translateX(-50%);
+        width: 14px;
+        height: 50px;
+        background-image: url(../img/down-arrow.svg);
+        background-size: cover;
+    }
 }
 
 @media(max-width: 450px) {

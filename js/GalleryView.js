@@ -245,6 +245,30 @@
                     'top': '50%',
                     'transform': 'translateY(-50%)'
                 })
+                leftArrow.css({
+                    'width': '30px',
+                    'height': '50px',
+                })
+                rightArrow.css({
+                    'width': '30px',
+                    'height': '50px',
+                })
+                leftArrow.find("span").css({
+                    "height": "4px",
+                    "top": "50%",
+                    "left": "0",
+                    "transform-origin": "2px center",
+                    "border-bottom-left-radius": "2px",
+                    "border-top-left-radius": "2px"
+                });
+                rightArrow.find("span").css({
+                    "height": "4px",
+                    "top": "50%",
+                    "left": "0",
+                    "transform-origin": "28px center",
+                    "border-bottom-left-radius": "2px",
+                    "border-top-left-radius": "2px"
+                })
             }
 
             gallery.append(img);
@@ -260,6 +284,30 @@
                     'left': '0%',
                     'top': '50%',
                     'transform': 'translateY(-50%)'
+                })
+                leftArrow.css({
+                    'width': '30px',
+                    'height': '50px',
+                })
+                rightArrow.css({
+                    'width': '30px',
+                    'height': '50px',
+                })
+                leftArrow.find("span").css({
+                    "height": "4px",
+                    "top": "50%",
+                    "left": "0",
+                    "transform-origin": "2px center",
+                    "border-bottom-left-radius": "2px",
+                    "border-top-left-radius": "2px"
+                });
+                rightArrow.find("span").css({
+                    "height": "4px",
+                    "top": "50%",
+                    "left": "0",
+                    "transform-origin": "28px center",
+                    "border-bottom-left-radius": "2px",
+                    "border-top-left-radius": "2px"
                 })
             }
         })

@@ -1,9 +1,9 @@
 //основной скрипт файл
 let data=["C:/Users/Yuldash/Desktop/workspace/PROJECT__ONE/img/gallery1.jpg",
-            "C:/Users/Yuldash/Desktop/workspace/PROJECT__ONE/img/gallery2.jpg",
-            "C:/Users/Yuldash/Desktop/workspace/PROJECT__ONE/img/gallery3.jpg",
-            "C:/Users/Yuldash/Desktop/workspace/PROJECT__ONE/img/gallery4.jpg",
-            "C:/Users/Yuldash/Desktop/workspace/PROJECT__ONE/img/gallery5.jpg"];
+            "../img/gallery2.jpg",
+            "../img/gallery3.jpg",
+            "../img/gallery4.jpg",
+            "../img/gallery5.jpg"];
 
 
 (function(){
